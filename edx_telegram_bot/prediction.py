@@ -20,8 +20,9 @@ def get_coursed_and_create_matrix():
     results = [course for course in modulestore().get_courses() if
                course.scope_ids.block_type == 'course']
     new_matrix = TfidMatrixAllCourses.objects.all().first() or TfidMatrixAllCourses()
-    print new_matrix.matrix.shape[0] != len(results)
-    if new_matrix.matrix.shape[0] != len(results):
+    # print new_matrix.matrix.shape[0] != len(results)
+    # if new_matrix.matrix.shape[0] != len(results):
+    if not new_matrix:
         all_courses = [re.sub('<[^>]*>', '', CourseDetails.fetch_about_attribute(x.id, 'overview')) for x in results]
 
         MatrixEdxCoursesId.objects.all().delete()
@@ -96,5 +97,6 @@ def prediction(telegram_id):
     cosine_similarities[list_of_user_courses_indexes] = -1000
 
     related_docs_indices = cosine_similarities.argsort()
-    little_random = np.random.randint(5,10)
-    return related_docs_indices[-little_random]
+    # little_random = np.random.randint(5,10)
+    # return related_docs_indices[-little_random]
+    return related_docs_indices[0]
