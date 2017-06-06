@@ -55,12 +55,12 @@ Use this command to start bot  in parallel terminal after starting LMS
 
 ### Users registration
 
-Project has no opportunity to authorize new users as edX`s instance student.
+Project has no opportunity to authorize new users as edX's instance student.
 
 So you need to do this manually:
-1) Go to admin panel, then to `Edx telegram users` model (table).
-2) Make relationship between Telegram user and edX user in field `student`.
-3) Add telegram `id` and telegram `nickname`.
+1. Go to admin panel, then to `Edx telegram users` model (table).
+2. Make relationship between Telegram user and edX user in field `student`.
+3. Add telegram `id` and telegram `nickname`.
 
 If you don`t know telegram id and nickname, just go ahead and log this, i.e:
 ```
